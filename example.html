@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Spoiler Plugin Example</title>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.4.7/standard-all/ckeditor.js"></script>
+<link rel="stylesheet" href="spoiler/css/spoiler.css">
+<style>#output { border: 1px solid #000; padding: 10px; }</style>
+
+<h1>Editor</h1>
+<textarea name="editor1"></textarea>
+
+<br><br>
+
+<h1>Preview</h1>
+<div id="output"></div>
+
+<script>
+// Add plugin
+var base = location.href.substring(0, location.href.lastIndexOf("/")) + '/spoiler/';
+CKEDITOR.plugins.addExternal('spoiler', base, 'plugin.js');
+
+// Init editor
+var editor = CKEDITOR.replace('editor1', {
+    extraPlugins: 'spoiler'
+});
+
+// Preview changes
+editor.on('change', function () {
+    $('#output').html(editor.getData());
+});
+
+// Make spoiler box toggable
+$('body').on('click', '.spoiler-title', function () {
+    $(this).closest('.spoiler').toggleClass('spoiler-open');
+});
+</script>

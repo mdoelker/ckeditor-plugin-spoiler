@@ -1,0 +1,17 @@
+{
+  "name": "ckeditor-plugin-spoiler",
+  "description": "CKEditor plugin that inserts a toggable spoiler box.",
+  "keywords": [
+    "ckeditor",
+    "plugin",
+    "spoiler"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
